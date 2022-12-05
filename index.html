@@ -23,7 +23,7 @@
             ]
         }">
             <template x-for="file in files" :key="file.name">
-                <button @click="document.getElementById('aud_' + file.name).play()" type="button" style="height: auto">
+                <button @click="play(file.name)" type="button" style="height: auto">
                     <span x-text="file.label"></span>
                     <audio :src="file.name + '.opus'" :id="'aud_' + file.name"></audio>
                 </button>
@@ -31,5 +31,12 @@
 
         </div>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script>
+            function play(name) {
+                let player = document.getElementById('aud_' + name);
+                player.play();
+                player.currentTime = null;
+            }
+        </script>
     </body>
 </html>
