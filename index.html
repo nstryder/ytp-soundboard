@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>no</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="holder" class="grid" x-data="{
+            files: [
+                { name: 'dinner', label: 'Dinner'},
+                { name: 'fart', label: 'Fart'},
+                { name: 'itburns', label: 'It Burns'},
+                { name: 'myboi', label: 'Mah Boi'},
+                { name: 'no', label: 'No'},
+                { name: 'pingas', label: 'Pingas'},
+                { name: 'tacobell', label: 'Taco Bell'},
+                { name: 'yoda', label: 'Yoda Death'},
+                { name: 'youmustdie', label: 'You Must Die'},
+            ]
+        }">
+            <template x-for="file in files" :key="file.name">
+                <button @click="document.getElementById('aud_' + file.name).play()" type="button" style="height: auto">
+                    <span x-text="file.label"></span>
+                    <audio :src="file.name + '.opus'" :id="'aud_' + file.name"></audio>
+                </button>
+            </template>
+
+        </div>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </body>
+</html>
