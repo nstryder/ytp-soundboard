@@ -20,12 +20,15 @@
                 { name: 'tacobell', label: 'Taco Bell'},
                 { name: 'yoda', label: 'Yoda Death'},
                 { name: 'youmustdie', label: 'You Must Die'},
+                { name: 'you', label: 'YOUUU'},
+                { name: 'yes', label: 'Yes'},
+                { name: 'augh', label: 'Aughhh'}
             ]
         }">
             <template x-for="file in files" :key="file.name">
                 <button @click="play(file.name)" type="button" style="height: auto">
                     <span x-text="file.label"></span>
-                    <audio :src="file.name + '.opus'" :id="'aud_' + file.name"></audio>
+                    <audio :src="'audio/' + file.name + '.mp3'" :id="'aud_' + file.name"></audio>
                 </button>
             </template>
 
